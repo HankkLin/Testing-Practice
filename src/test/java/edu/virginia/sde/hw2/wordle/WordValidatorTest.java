@@ -20,7 +20,12 @@ public class WordValidatorTest {
         assertFalse(wordValidator.isValidWord("java"));
     }
     @Test
-    public void isValidWord_false_notEnglish(){
-        assertFalse((wordValidator.isValidWord("αβΓγΔ")));
+    public void isValidWord_true(){
+        assertTrue(wordValidator.isValidWord("apple"));
     }
+    @Test
+    public void isValidWord_false_notEnglish(){
+        assertFalse((wordValidator.isValidWord("12345")));
+    }
+
 }
