@@ -58,4 +58,26 @@ class DictionaryTest {
         var dictionary = new Dictionary(startingWordSet, new WordValidator());
         assertNotEquals(3,dictionary.size());
     }
+    @Test void check_add_word_valid(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel","dhddd"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertFalse(dictionary.contains("hohoh"));
+        try {
+            dictionary.addWord("hohoh");
+        }
+        catch(Exception e){
+        }
+        assertTrue(dictionary.contains("hohoh"));
+    }
+    @Test void check_add_word_invalid(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel","dhddd"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertFalse(dictionary.contains("12345"));
+        try {
+            dictionary.addWord("12345");
+        }
+        catch(Exception e){
+        }
+        assertFalse(dictionary.contains("12345"));
+    }
 }
