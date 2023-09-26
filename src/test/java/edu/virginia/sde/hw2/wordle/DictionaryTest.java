@@ -29,4 +29,20 @@ class DictionaryTest {
         var wordSet = dictionary.getWordSet();
         assertTrue(wordSet.isEmpty());
     }
+    @Test
+    public void check_contains_true(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertTrue(dictionary.contains("apple"));
+        assertTrue(dictionary.contains("black"));
+        assertTrue(dictionary.contains("camel"));
+    }
+    @Test
+    public void check_contains_false(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertFalse(dictionary.contains("hohoh"));
+        assertFalse(dictionary.contains("13423"));
+        assertFalse(dictionary.contains("fhbj"));
+    }
 }
