@@ -17,7 +17,6 @@ public class Dictionary {
      * The set of words in the dictionary
      */
     private final Set<String> wordSet;
-    private int x;
 
     /**
      * Determines what words are allowed in the dictionary. See {@link WordValidator#isValidWord(String)}
