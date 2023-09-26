@@ -45,4 +45,17 @@ class DictionaryTest {
         assertFalse(dictionary.contains("13423"));
         assertFalse(dictionary.contains("fhbj"));
     }
+
+    @Test
+    public void check_size_equal(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel","dhddd"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertEquals(4,dictionary.size());
+    }
+    @Test
+    public void check_size_not_equal(){
+        var startingWordSet = new HashSet<>(Set.of("apple", "black", "camel","dhddd"));
+        var dictionary = new Dictionary(startingWordSet, new WordValidator());
+        assertNotEquals(3,dictionary.size());
+    }
 }
