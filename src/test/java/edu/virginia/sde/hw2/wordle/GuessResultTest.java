@@ -10,6 +10,9 @@ public class GuessResultTest {
     public void test_all_correct_getLetterResult(){
         var test = new GuessResult("apple","apple");
     }
+    @Test void test_isCorrect(){
+        var test = new GuessResult("apple","apple");
+    }
     @Test void test_getGuess(){
         var test = new GuessResult("apple","apple");
         assertEquals("apple",test.getGuess());
