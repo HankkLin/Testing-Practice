@@ -18,7 +18,13 @@ public class GuessResultTest {
             assertEquals(LetterResult.YELLOW,test.getLetterResults()[i]);
         }
     }
-
+    @Test
+    public void test_all_gray_getLetterResult(){
+        var test = new GuessResult("apple","smncx");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            assertEquals(LetterResult.GRAY,test.getLetterResults()[i]);
+        }
+    }
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
     }
