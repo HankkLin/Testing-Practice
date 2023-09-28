@@ -54,7 +54,6 @@ public class GuessResult {
         LetterResult[] results = this.getLetterResults();
         for (int i = 0; i < results.length; i++){
             if (!(results[i].equals(GREEN))){
-                System.out.println(i);
                 return false;
             }
         }

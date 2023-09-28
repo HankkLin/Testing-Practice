@@ -45,4 +45,14 @@ class GameTest {
         game.submitGuess("sssss");
         assertEquals(3,game.getGuessesRemaining());
     }
+    @Test
+    public void submitGuess_gameStatus_test() {
+        var game = new Game(defaultGuessesDictionary, "TREND", 3, WIN);
+        game.submitGuess("TREND");
+        assertEquals(WIN,game.getGameStatus());
+        game.submitGuess("sdddd");
+        assertEquals(PLAYING,game.getGameStatus());
+        game.submitGuess("sdddd");
+        assertEquals(LOSS,game.getGameStatus());
+    }
 }

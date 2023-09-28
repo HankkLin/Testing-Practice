@@ -124,7 +124,14 @@ public class Game {
         //TODO: Stub
         this.guessesRemaining -= 1;
         var result = new GuessResult(guess,this.answer);
-        LetterResult[] letterResults = result.getLetterResults();
+        if(result.isCorrect()){
+            this.gameStatus = WIN;
+        }
+        else if(this.guessesRemaining == 0){
+            this.gameStatus = LOSS;
+        }else{
+            this.gameStatus = PLAYING;
+        }
         return null;
     }
 
