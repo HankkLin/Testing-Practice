@@ -1,15 +1,17 @@
 package edu.virginia.sde.hw2.wordle;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 public class GuessResultTest {
     @Test
     public void test_all_correct_getLetterResult(){
         var test = new GuessResult("apple","apple");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            assertEquals(LetterResult.GREEN,test.getLetterResults()[i]);
+        }
     }
+
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
     }
