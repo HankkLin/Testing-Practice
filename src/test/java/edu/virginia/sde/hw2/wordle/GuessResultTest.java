@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class GuessResultTest {
     @Test
     public void test_all_correct_getLetterResult(){
-        var test = new GuessResult("apple","apple");
+        var test = new GuessResult("brown","brown");
         for (int i = 0; i < test.getLetterResults().length; i++){
             assertEquals(LetterResult.GREEN,test.getLetterResults()[i]);
         }
     }
     @Test
     public void test_all_yellow_getLetterResult(){
-        var test = new GuessResult("apple","palep");
+        var test = new GuessResult("brown","nwrob");
         for (int i = 0; i < test.getLetterResults().length; i++){
             assertEquals(LetterResult.YELLOW,test.getLetterResults()[i]);
         }
@@ -23,6 +23,14 @@ public class GuessResultTest {
         var test = new GuessResult("apple","smncx");
         for (int i = 0; i < test.getLetterResults().length; i++){
             assertEquals(LetterResult.GRAY,test.getLetterResults()[i]);
+        }
+    }
+    @Test
+    public void test_mix_getLetterResult(){
+        var test = new GuessResult("brain","basic");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            LetterResult[] answer = {LetterResult.GREEN,LetterResult.GRAY,LetterResult.YELLOW,LetterResult.GREEN,LetterResult.GRAY};
+            assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }
     @Test void test_isCorrect(){
