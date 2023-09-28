@@ -62,9 +62,18 @@ public class GuessResult {
      * function is case-insensitive.
      */
     public LetterResult[] getLetterResults() {
-        int x = 0;
+        LetterResult[] returnResult = new LetterResult[5];
+        for(int i = 0; i < guess.length();i++){
+            for(int j = 0; j<answer.length();j++) {
+                if (guess.charAt(i) == answer.charAt(i)) {
+                    returnResult[i] = GREEN;
+                }
+            }
+        }
+
+
         //TODO: Stub
-        return null;
+        return returnResult;
     }
 
 
