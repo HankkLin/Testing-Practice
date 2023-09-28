@@ -2,6 +2,7 @@ package edu.virginia.sde.hw2.wordle;
 
 import java.sql.ResultSet;
 import java.util.Arrays;
+import java.util.EnumMap;
 
 import static edu.virginia.sde.hw2.wordle.LetterResult.*;
 
@@ -63,21 +64,34 @@ public class GuessResult {
      * function is case-insensitive.
      */
     public LetterResult[] getLetterResults() {
-        LetterResult[] returnResult = new LetterResult[5];
-        for(int i = 0; i < guess.length();i++){
-            char testing = guess.charAt(i);
-            if (answer.charAt(i) == testing) {
-                returnResult[i] = GREEN;
-            } else if (answer.indexOf(testing) == -1) {
-                returnResult[i] = GRAY;
-            } else if(answer.indexOf(testing) != -1){
-                returnResult[i] = YELLOW;
+        LetterResult[] results = new LetterResult[5];
+        boolean[] x = {false, false, false, false, false};
+        for (int i = 0; i < 5; i++) {
+            if (answer.charAt(i) == guess.charAt(i)) {
+                results[i] = GREEN;
+                x[i] = true;
+            }
+            else if (answer.indexOf(guess.charAt(i))==-1){
+                results[i] = GRAY;
             }
         }
-
-
-        //TODO: Stub
-        return returnResult;
+        for (int i =0; i <5; i++){
+            if(results[i]==null){
+                for(int j=0;j<5;j++){
+                    if(answer.charAt(j)==guess.charAt(i)&& !(x[j])){
+                        x[j] = true;
+                        results[i] = YELLOW;
+                        break;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 5; i++) {
+            if (results[i] == null) {
+                results[i] = GRAY;
+            }
+        }
+        return results;
     }
 
 

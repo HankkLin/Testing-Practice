@@ -13,14 +13,14 @@ public class GuessResultTest {
     }
     @Test
     public void test_all_yellow_getLetterResult(){
-        var test = new GuessResult("brown","nwrob");
+        var test = new GuessResult("nwrob","brown");
         for (int i = 0; i < test.getLetterResults().length; i++){
             assertEquals(LetterResult.YELLOW,test.getLetterResults()[i]);
         }
     }
     @Test
     public void test_all_gray_getLetterResult(){
-        var test = new GuessResult("apple","smncx");
+        var test = new GuessResult("smncx","apple");
         for (int i = 0; i < test.getLetterResults().length; i++){
             assertEquals(LetterResult.GRAY,test.getLetterResults()[i]);
         }
@@ -35,9 +35,9 @@ public class GuessResultTest {
     }
     @Test
     public void test_double_yellow_getLetterResult(){
-        var test = new GuessResult("apple","palap");
+        var test = new GuessResult("palap","apple");
         for (int i = 0; i < test.getLetterResults().length; i++){
-            LetterResult[] answer = {LetterResult.YELLOW,LetterResult.GREEN,LetterResult.YELLOW,LetterResult.GRAY,LetterResult.YELLOW};
+            LetterResult[] answer = {LetterResult.YELLOW,LetterResult.YELLOW,LetterResult.YELLOW,LetterResult.GRAY,LetterResult.YELLOW};
             assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }
