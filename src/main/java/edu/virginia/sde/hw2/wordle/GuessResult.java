@@ -1,5 +1,6 @@
 package edu.virginia.sde.hw2.wordle;
 
+import java.sql.ResultSet;
 import java.util.Arrays;
 
 import static edu.virginia.sde.hw2.wordle.LetterResult.*;
@@ -64,10 +65,13 @@ public class GuessResult {
     public LetterResult[] getLetterResults() {
         LetterResult[] returnResult = new LetterResult[5];
         for(int i = 0; i < guess.length();i++){
-            for(int j = 0; j<answer.length();j++) {
-                if (guess.charAt(i) == answer.charAt(i)) {
-                    returnResult[i] = GREEN;
-                }
+            char testing = guess.charAt(i);
+            if (answer.charAt(i) == testing) {
+                returnResult[i] = GREEN;
+            } else if (answer.indexOf(testing) == -1) {
+                returnResult[i] = GRAY;
+            } else if(answer.indexOf(testing) != -1){
+                returnResult[i] = YELLOW;
             }
         }
 
