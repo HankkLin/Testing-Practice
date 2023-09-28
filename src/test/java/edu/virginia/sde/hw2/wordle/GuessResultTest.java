@@ -33,6 +33,14 @@ public class GuessResultTest {
             assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }
+    @Test
+    public void test_double_yellow_getLetterResult(){
+        var test = new GuessResult("apple","palap");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            LetterResult[] answer = {LetterResult.YELLOW,LetterResult.GREEN,LetterResult.YELLOW,LetterResult.GRAY,LetterResult.YELLOW};
+            assertEquals(answer[i],test.getLetterResults()[i]);
+        }
+    }
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
     }
