@@ -1,6 +1,8 @@
 package edu.virginia.sde.hw2.wordle;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import static edu.virginia.sde.hw2.wordle.GameStatus.*;
 
@@ -120,6 +122,9 @@ public class Game {
      */
     public GuessResult submitGuess(String guess) {
         //TODO: Stub
+        this.guessesRemaining -= 1;
+        var result = new GuessResult(guess,this.answer);
+        LetterResult[] letterResults = result.getLetterResults();
         return null;
     }
 

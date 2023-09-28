@@ -43,9 +43,9 @@ public class GuessResultTest {
     }
     @Test
     public void test_overGuess_getLetterResult(){
-        var test = new GuessResult("abcde","aaaaa");
+        var test = new GuessResult("abcde","baaaa");
         for (int i = 0; i < test.getLetterResults().length; i++){
-            LetterResult[] answer = {LetterResult.GREEN,LetterResult.GRAY,LetterResult.GRAY,LetterResult.GRAY,LetterResult.GRAY};
+            LetterResult[] answer = {LetterResult.YELLOW,LetterResult.YELLOW,LetterResult.GRAY,LetterResult.GRAY,LetterResult.GRAY};
             assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }

@@ -17,13 +17,11 @@ class GameTest {
     @Test
     public void test_init_zeroArgumentConstructor() {
         var game = new Game();
-
         assertEquals(defaultGuessesDictionary, game.getGuessDictionary());
         assertTrue(defaultAnswersDictionary.contains(game.getAnswer()));
         assertEquals(6, game.getGuessesRemaining());
         assertEquals(PLAYING, game.getGameStatus());
     }
-
     @Test
     public void test_init_4ArgumentConstructor() {
         var game = new Game(defaultGuessesDictionary, "TREND", 6, PLAYING);
@@ -33,12 +31,18 @@ class GameTest {
         assertEquals(6, game.getGuessesRemaining());
         assertEquals(PLAYING, game.getGameStatus());
     }
-
     @Test
     public void test_isGameOver_WIN_True() {
         var game = new Game(defaultGuessesDictionary, "TREND", 5, WIN);
-
         assertEquals(WIN, game.getGameStatus());
         assertTrue(game.isGameOver());
+    }
+    @Test
+    public void submitGuess_guessremaining_test() {
+        var game = new Game(defaultGuessesDictionary, "TREND", 5, WIN);
+        game.submitGuess("sssss");
+        assertEquals(4,game.getGuessesRemaining());
+        game.submitGuess("sssss");
+        assertEquals(3,game.getGuessesRemaining());
     }
 }

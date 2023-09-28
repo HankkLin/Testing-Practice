@@ -1,9 +1,5 @@
 package edu.virginia.sde.hw2.wordle;
 
-import java.sql.ResultSet;
-import java.util.Arrays;
-import java.util.EnumMap;
-
 import static edu.virginia.sde.hw2.wordle.LetterResult.*;
 
 /**
