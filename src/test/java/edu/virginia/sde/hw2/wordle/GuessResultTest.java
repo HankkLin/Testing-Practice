@@ -11,6 +11,13 @@ public class GuessResultTest {
             assertEquals(LetterResult.GREEN,test.getLetterResults()[i]);
         }
     }
+    @Test
+    public void test_all_yellow_getLetterResult(){
+        var test = new GuessResult("apple","palep");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            assertEquals(LetterResult.YELLOW,test.getLetterResults()[i]);
+        }
+    }
 
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
