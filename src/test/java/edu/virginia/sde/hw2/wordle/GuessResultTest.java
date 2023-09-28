@@ -49,8 +49,16 @@ public class GuessResultTest {
             assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }
+
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
+        test.getLetterResults();
+        assertEquals(true,test.isCorrect());
+    }
+    @Test void test_isCorrect_false(){
+        var test = new GuessResult("apple","aaple");
+        test.getLetterResults();
+        assertEquals(false,test.isCorrect());
     }
     @Test void test_getGuess(){
         var test = new GuessResult("apple","apple");

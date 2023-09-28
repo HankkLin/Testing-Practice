@@ -51,8 +51,14 @@ public class GuessResult {
      * Returns true if the player's guess matches the answer (case-insensitive)
      */
     public boolean isCorrect() {
-        //TODO: Stub
-        return false;
+        LetterResult[] results = this.getLetterResults();
+        for (int i = 0; i < results.length; i++){
+            if (!(results[i].equals(GREEN))){
+                System.out.println(i);
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
