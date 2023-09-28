@@ -41,6 +41,14 @@ public class GuessResultTest {
             assertEquals(answer[i],test.getLetterResults()[i]);
         }
     }
+    @Test
+    public void test_overGuess_getLetterResult(){
+        var test = new GuessResult("abcde","aaaaa");
+        for (int i = 0; i < test.getLetterResults().length; i++){
+            LetterResult[] answer = {LetterResult.GREEN,LetterResult.GRAY,LetterResult.GRAY,LetterResult.GRAY,LetterResult.GRAY};
+            assertEquals(answer[i],test.getLetterResults()[i]);
+        }
+    }
     @Test void test_isCorrect(){
         var test = new GuessResult("apple","apple");
     }
