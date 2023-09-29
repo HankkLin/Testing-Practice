@@ -1,7 +1,5 @@
 package edu.virginia.sde.hw2.wordle;
 
-import java.util.Arrays;
-
 import static edu.virginia.sde.hw2.wordle.LetterResult.*;
 
 /**
@@ -53,8 +51,13 @@ public class GuessResult {
      * Returns true if the player's guess matches the answer (case-insensitive)
      */
     public boolean isCorrect() {
-        //TODO: Stub
-        return false;
+        LetterResult[] results = this.getLetterResults();
+        for (int i = 0; i < results.length; i++){
+            if (!(results[i].equals(GREEN))){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -62,8 +65,34 @@ public class GuessResult {
      * function is case-insensitive.
      */
     public LetterResult[] getLetterResults() {
-        //TODO: Stub
-        return null;
+        LetterResult[] results = new LetterResult[5];
+        boolean[] x = {false, false, false, false, false};
+        for (int i = 0; i < 5; i++) {
+            if (answer.charAt(i) == guess.charAt(i)) {
+                results[i] = GREEN;
+                x[i] = true;
+            }
+            else if (answer.indexOf(guess.charAt(i))==-1){
+                results[i] = GRAY;
+            }
+        }
+        for (int i =0; i <5; i++){
+            if(results[i]==null){
+                for(int j=0;j<5;j++){
+                    if(answer.charAt(j)==guess.charAt(i)&& !(x[j])){
+                        x[j] = true;
+                        results[i] = YELLOW;
+                        break;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 5; i++) {
+            if (results[i] == null) {
+                results[i] = GRAY;
+            }
+        }
+        return results;
     }
 
 

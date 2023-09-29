@@ -1,6 +1,8 @@
 package edu.virginia.sde.hw2.wordle;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import static edu.virginia.sde.hw2.wordle.GameStatus.*;
 
@@ -120,7 +122,23 @@ public class Game {
      */
     public GuessResult submitGuess(String guess) {
         //TODO: Stub
-        return null;
+        if(this.gameStatus.equals(LOSS) || this.gameStatus.equals(WIN)){
+            throw new GameAlreadyOverException("Game over, stop guessing!");
+        }
+        if(!guessDictionary.contains(guess)){
+            throw new IllegalWordException("Word not in the dictionary");
+        }
+        this.guessesRemaining -= 1;
+        var result = new GuessResult(guess,this.answer);
+        if(result.isCorrect()){
+            this.gameStatus = WIN;
+        }
+        else if(this.guessesRemaining == 0){
+            this.gameStatus = LOSS;
+        }else{
+            this.gameStatus = PLAYING;
+        }
+        return result;
     }
 
     private static void validate(Dictionary guessDictionary, String answer, int guessesRemaining, GameStatus gameStatus) {
