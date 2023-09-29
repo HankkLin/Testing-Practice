@@ -13,6 +13,8 @@ I start with the three basic function, which is all_green, all_yellow, or all_gr
     public void test_double_yellow_getLetterResult()
     public void test_overGuess_getLetterResult()
 ```
+These two are boundary case, the first one have "apple" as the answer and the user guess "palap". There are two 'p' in the answer, so for the result, both 'p' should be label as YELLOW. And for char 'a', it only appear in the answer once, so the first 'a' should be label as YELLOW but the second one should be label as GRAY. This is a special case that although the letter exist but the because the user guess the same letter more than once so the second same letter will be GRAY instead of YELLOW.
+For the second case, the user guess 'a' for four times but only one 'a' appear in the answer, so it should only have the first 'a' being YELLOW, the rest should be GREEN. 
 
 
 ## Question 2
@@ -21,4 +23,5 @@ The function submitGuess(String) in WordleGameState can throw two different Exce
 
 ## Answer
 
-[Your team answer goes here]
+The exceptions is a good way for developers to confirm the error or the bug that cause the code to not work. Just like assert, the exception can include details about the error, such as the type of error, the location where it occurred, and potentially additional context.
+Beside that it is a seperate flow of the program. It allows developers to separate the code that detects and handles errors from the normal flow of the program. This separation can lead to cleaner and more readable code. 
