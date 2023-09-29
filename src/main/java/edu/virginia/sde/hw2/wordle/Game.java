@@ -122,6 +122,12 @@ public class Game {
      */
     public GuessResult submitGuess(String guess) {
         //TODO: Stub
+        if(this.gameStatus.equals(LOSS) || this.gameStatus.equals(WIN)){
+            throw new GameAlreadyOverException("Game over, stop guessing!");
+        }
+        if(!guessDictionary.contains(guess)){
+            throw new IllegalWordException("Word not in the dictionary");
+        }
         this.guessesRemaining -= 1;
         var result = new GuessResult(guess,this.answer);
         if(result.isCorrect()){

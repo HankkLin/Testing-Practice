@@ -39,7 +39,8 @@ class GameTest {
     }
     @Test
     public void submitGuess_guessremaining_test() {
-        var game = new Game(defaultGuessesDictionary, "TREND", 5, WIN);
+        var game = new Game(defaultGuessesDictionary, "TREND", 5, PLAYING);
+
         try {game.submitGuess("ghost");}
         catch (Exception e){}
         assertEquals(4,game.getGuessesRemaining());
@@ -52,19 +53,21 @@ class GameTest {
     }
     @Test
     public void submitGuess_gameStatus_win_test() {
-        var game = new Game(defaultGuessesDictionary, "TREND", 3, WIN);
+        var game = new Game(defaultGuessesDictionary, "TREND", 3, PLAYING);
         try {game.submitGuess("TREND");}
         catch (Exception e){}
         assertEquals(WIN,game.getGameStatus());
     }
+    @Test
     public void submitGuess_gameStatus_lose_test() {
-        var game = new Game(defaultGuessesDictionary, "TREND", 1, WIN);
+        var game = new Game(defaultGuessesDictionary, "TREND", 1, PLAYING);
         try {game.submitGuess("GHOST");}
         catch (Exception e){}
         assertEquals(LOSS,game.getGameStatus());
     }
+    @Test
     public void submitGuess_gameStatus_playing_test() {
-        var game = new Game(defaultGuessesDictionary, "TREND", 3, WIN);
+        var game = new Game(defaultGuessesDictionary, "TREND", 3, PLAYING);
         try {game.submitGuess("GHOST");}
         catch (Exception e){}
         assertEquals(PLAYING,game.getGameStatus());
