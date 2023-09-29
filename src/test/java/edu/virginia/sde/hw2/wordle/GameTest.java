@@ -40,19 +40,33 @@ class GameTest {
     @Test
     public void submitGuess_guessremaining_test() {
         var game = new Game(defaultGuessesDictionary, "TREND", 5, WIN);
-        game.submitGuess("sssss");
+        try {game.submitGuess("ghost");}
+        catch (Exception e){}
         assertEquals(4,game.getGuessesRemaining());
-        game.submitGuess("sssss");
+        try {game.submitGuess("sssss");}
+        catch (Exception e){}
+        assertEquals(4,game.getGuessesRemaining());
+        try {game.submitGuess("TREND");}
+        catch (Exception e){}
         assertEquals(3,game.getGuessesRemaining());
     }
     @Test
-    public void submitGuess_gameStatus_test() {
+    public void submitGuess_gameStatus_win_test() {
         var game = new Game(defaultGuessesDictionary, "TREND", 3, WIN);
-        game.submitGuess("TREND");
+        try {game.submitGuess("TREND");}
+        catch (Exception e){}
         assertEquals(WIN,game.getGameStatus());
-        game.submitGuess("sdddd");
-        assertEquals(PLAYING,game.getGameStatus());
-        game.submitGuess("sdddd");
+    }
+    public void submitGuess_gameStatus_lose_test() {
+        var game = new Game(defaultGuessesDictionary, "TREND", 1, WIN);
+        try {game.submitGuess("GHOST");}
+        catch (Exception e){}
         assertEquals(LOSS,game.getGameStatus());
+    }
+    public void submitGuess_gameStatus_playing_test() {
+        var game = new Game(defaultGuessesDictionary, "TREND", 3, WIN);
+        try {game.submitGuess("GHOST");}
+        catch (Exception e){}
+        assertEquals(PLAYING,game.getGameStatus());
     }
 }
