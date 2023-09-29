@@ -8,7 +8,12 @@ Answer these questions thoroughly after completing the assignment, using example
 
 ## Answer
 
-[Your team answer goes here]
+I start with the three basic function, which is all_green, all_yellow, or all_gray. (line 15, 22, 29). These three functions are the most basic case for all result for all the letters. I consider them at three different partitions becuase each is being handle by different part of the code. I later include a test code mix, which is the example on the docs just to confirm everything is working. I later include another two different cases:
+```java
+    public void test_double_yellow_getLetterResult()
+    public void test_overGuess_getLetterResult()
+```
+
 
 ## Question 2
 
