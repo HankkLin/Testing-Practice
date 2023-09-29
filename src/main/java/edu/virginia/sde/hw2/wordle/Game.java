@@ -138,7 +138,7 @@ public class Game {
         }else{
             this.gameStatus = PLAYING;
         }
-        return null;
+        return result;
     }
 
     private static void validate(Dictionary guessDictionary, String answer, int guessesRemaining, GameStatus gameStatus) {
