@@ -1,9 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/v1t_usYi)
-# Homework 2 - Testing
-
-## Authors
-1) Han Lin, ezp9xp, HankkLin
-
+This is a practice project for course CS3140 in University of Virginia.\
+Generated from [here](https://github.com/cs-3140-fa23/hw2-starter-repo).
 ## To Run
 
 ### Prerequisites
@@ -27,14 +23,3 @@ To execute the JAR file, use the following command:
 java -jar PlayWordle.jar
 ```
 
-## Contributions
-
-All by me! All the code you see are written by me, including this README.md and QUESTIONS.md. 
-
-* Author 3 contributions
-* as a bulleted list
-* each line starts with an asterisk and a space
-
-## Issues
-
-List any known issues (bugs, incorrect behavior, etc.) at the time of submission.
